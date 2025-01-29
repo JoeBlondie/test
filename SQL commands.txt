@@ -1,0 +1,64 @@
+https://youtu.be/fXxB2pN3_30 - guide video
+
+Database:
+SHOW databases;
+CREATE databasename;
+DROP databasename;
+USE databasename;
+
+Table:
+CREATE table tablename #press enter# 
+-> (id INT(number) NOT NULL PRIMARY KEY, #press enter# 
+-> name VARCHAR(number) NULL, #press enter#
+-> number INT(number) NULL);
+
+DELETE FROM tablename WHERE columnname="name";
+DROP tablename;
+DESC tablename;
+INSERT INTO tablename VALUES (number,"idname", number);
+
+UPDATE tablename SET columnname="idname" WHERE columnname="idname";
+
+ALTER TABLE tablename DROP COLUMN columnname;
+ALTER TABLE tablename ADD COLUMN idname INT AFTER columnname;
+
+ALTER TABLE tablename #enter# ->
+-> RENAME COLUMN old_name to new_name;
+
+( Automatic ID) ALTER TABLE tablename ADD COLUMN id INT NOT NULL PRIMARY KEY AUTO_INCREMENT;
+=======================================================================================================
+
+SELECT:
+SELECT * FROM tablename;
+SELECT DISTINCT columnname FROM tablename;
+SELECT * FROM tablename LIMIT *number*;
+***SELECT number AS номер FROM courses;***
+(=)  SELECT columnname1, columnname2 FROM table WHERE column1 = "idname";
+(>,<, >=, <=) SELECT number FROM courses WHERE number > 1;
+(= OR =) SELECT * FROM tablename WHERE columnname1 = 1 OR columnname2 = "idname";
+(= AND =) SELECT * FROM tablename WHERE columnname1 = 1 AND columnname2 = "idname";
+(LIKE _io, %o, _e%) SELECT columnname FROM table WHERE columnname LIKE "_io";
+(number between WHERE or WHERE NOT) SELECT * FROM tablename WHERE number BETWEEN 2 and 4;
+(number IN) SELECT * FROM tablename WHERE number IN (1,4);
+(WHERE OR AND) SELECT * FROM tablename WHERE (columnname = "idname" OR faculty = "bio") AND number = 1;
+(ORDER BY a,b,c...) SELECT * FROM tablename ORDER BY columnname;
+(ORDER BY DESC z,x,y...) SELECT * FROM tablename ORDER BY columnname DESC;
+SELECT AVG(number) FROM tablename;
+SELECT SUM(number) FROM tablename;
+(MIN or MAX) SELECT MIN(number) AS min_number FROM tablename;
+SELECT COUNT(columnname) FROM tablename;
+
+---------------
+SELECT (SELECT)
+Example:
+select fname,lname,gender,id from general where age IN (SELECT age from general where id>1 and age >=21);
+
+
+========================================================================================================
+
+JOIN:
+Inner JOIN:
+SELECT tablename1.columnname1, tablename2.columnname1, tablename2.columnname2 FROM courses JOIN tablename2 ON tablename1.id = general.ID;
+
+LEFT JOIN:
+SELECT tablename1.columnname1, tablename2.columnname1, tablename2.columnname2 FROM courses LEFT JOIN tablename2 ON tablename1.id = general.ID;
